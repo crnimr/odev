@@ -100,4 +100,3 @@ yeni_df = df[["Ad", "Soyad", "Sektör", "Yeni Maaş"]]
 print("Yeni DataFrame:")
 print(yeni_df)
 
-
