@@ -25,9 +25,9 @@ mavi_yaka2 = MaviYaka("88888888888", "Ayşe", "Demir", 28, "Kadın", "Türk", "P
 mavi_yaka3 = MaviYaka("99999999999", "Mehmet", "Aksoy", 40, "Erkek", "Türk", "Finans", 8, 18000, 0.3)
 
 # BeyazYaka nesneleri oluşturma
-beyaz_yaka1 = BeyazYaka("12312312312", "Ayşe", "Demir", 36, "Kadın", "Türk", 500)
-beyaz_yaka2 = BeyazYaka("45645645645", "Mehmet", "Kara", 40, "Erkek", "Türk", 2500)
-beyaz_yaka3 = BeyazYaka("78978978978", "Fatma", "Yılmaz", 32, "Kadın", "Türk", 1000)
+beyaz_yaka1 = BeyazYaka("12312312312", "Ayşe", "Demir", 36, "Kadın", "Türk", 4500, 500,1)
+beyaz_yaka2 = BeyazYaka("45645645645", "Mehmet", "Kara", 40, "Erkek", "Türk", 6000, 500,4)
+beyaz_yaka3 = BeyazYaka("78978978978", "Fatma", "Yılmaz", 32, "Kadın", "Türk", 5000, 2500,2)
 
 # DataFrame oluşturma
 data = {

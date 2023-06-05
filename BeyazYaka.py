@@ -1,14 +1,14 @@
 class BeyazYaka:
-    def __init__(self, tc_no, ad, soyad, yas, cinsiyet, uyruk, tecrube, maas, tesvik_primi):
+    def __init__(self, tc_no, ad, soyad, yas, cinsiyet, uyruk,maas,tesvik_primi,tecrube):
         self.__tc_no = tc_no
         self.__ad = ad
         self.__soyad = soyad
         self.__yas = yas
         self.__cinsiyet = cinsiyet
         self.__uyruk = uyruk
-        self.__tecrube = tecrube
-        self.__maas = maas
-        self.__tesvik_primi = tesvik_primi
+        self.__maas=maas
+        self.__tesvik_primi=tesvik_primi
+        self.__tecrube=tecrube
 
     def get_tc_no(self):
         return self.__tc_no
@@ -46,12 +46,6 @@ class BeyazYaka:
     def set_uyruk(self, uyruk):
         self.__uyruk = uyruk
 
-    def get_tecrube(self):
-        return self.__tecrube
-
-    def set_tecrube(self, tecrube):
-        self.__tecrube = tecrube
-
     def get_maas(self):
         return self.__maas
 
@@ -62,7 +56,18 @@ class BeyazYaka:
         return self.__tesvik_primi
 
     def set_tesvik_primi(self, tesvik_primi):
-        self.__tesvik_primi = tesvik_primi
+        if tesvik_primi == 500 or tesvik_primi == 2500:
+            self.__tesvik_primi = tesvik_primi
+            self.__tesvik_primi = tesvik_primi
+
+        else:
+            print("Hatalı teşvik primi değeri!")
+
+    def get_tecrube(self):
+        return self.__tecrube
+
+    def set_tecrube(self, tecrube):
+        self.__tecrube = tecrube
 
     def zam_hakki(self):
         try:
