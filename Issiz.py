@@ -71,3 +71,5 @@ class Issiz:
             return f"Ad: {self.__ad}\nSoyad: {self.__soyad}\nEn Uygun Statü Bulunamadı"
 
 
+
+
