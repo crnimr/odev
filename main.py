@@ -38,7 +38,7 @@ data = {
     "Yaş": [calisan1.get_yas(), calisan2.get_yas(), calisan3.get_yas(), mavi_yaka1.get_yas(), mavi_yaka2.get_yas(), mavi_yaka3.get_yas(), beyaz_yaka1.get_yas(), beyaz_yaka2.get_yas(), beyaz_yaka3.get_yas()],
     "Cinsiyet": [calisan1.get_cinsiyet(), calisan2.get_cinsiyet(), calisan3.get_cinsiyet(), mavi_yaka1.get_cinsiyet(), mavi_yaka2.get_cinsiyet(), mavi_yaka3.get_cinsiyet(), beyaz_yaka1.get_cinsiyet(), beyaz_yaka2.get_cinsiyet(), beyaz_yaka3.get_cinsiyet()],
     "Uyruk": [calisan1.get_uyruk(), calisan2.get_uyruk(), calisan3.get_uyruk(), mavi_yaka1.get_uyruk(), mavi_yaka2.get_uyruk(), mavi_yaka3.get_uyruk(), beyaz_yaka1.get_uyruk(), beyaz_yaka2.get_uyruk(), beyaz_yaka3.get_uyruk()],
-    "Sektör": [calisan1.get_sektor(), calisan2.get_sektor(), calisan3.get_sektor(), "", "", "", "", "", ""],
+    "Sektör": ["Teknoloji", "Satış", "Mühendislik", "Üretim", "Üretim", "Lojistik", "Finans", "Pazarlama", "İnsan Kaynakları"],
     "Tecrübe": [calisan1.get_tecrube(), calisan2.get_tecrube(), calisan3.get_tecrube(), mavi_yaka1.get_tecrube(), mavi_yaka2.get_tecrube(), mavi_yaka3.get_tecrube(), beyaz_yaka1.get_tecrube(), beyaz_yaka2.get_tecrube(), beyaz_yaka3.get_tecrube()],
     "Maaş": [calisan1.get_maas(), calisan2.get_maas(), calisan3.get_maas(), mavi_yaka1.get_maas(), mavi_yaka2.get_maas(), mavi_yaka3.get_maas(), beyaz_yaka1.get_maas(), beyaz_yaka2.get_maas(), beyaz_yaka3.get_maas()],
     "Yıpranma Payı": [0, 0, 0, mavi_yaka1.get_yipranma_payi(), mavi_yaka2.get_yipranma_payi(), mavi_yaka3.get_yipranma_payi(), 0, 0, 0],
@@ -47,57 +47,3 @@ data = {
 }
 
 df = pd.DataFrame(data)
-
-# Boş değerleri 0 olarak doldurma
-df.fillna(0, inplace=True)
-
-# Çalışan, mavi yaka ve beyaz yaka için gruplandırma ve ortalama hesaplama
-calisan_grup = df[df["Nesne Değeri"] == "Çalışan"]
-mavi_yaka_grup = df[df["Nesne Değeri"] == "Mavi Yaka"]
-beyaz_yaka_grup = df[df["Nesne Değeri"] == "Beyaz Yaka"]
-
-calisan_ort_tecrube = calisan_grup["Tecrübe"].mean()
-calisan_ort_maas = calisan_grup["Yeni Maaş"].mean()
-
-mavi_yaka_ort_tecrube = mavi_yaka_grup["Tecrübe"].mean()
-mavi_yaka_ort_maas = mavi_yaka_grup["Yeni Maaş"].mean()
-
-beyaz_yaka_ort_tecrube = beyaz_yaka_grup["Tecrübe"].mean()
-beyaz_yaka_ort_maas = beyaz_yaka_grup["Yeni Maaş"].mean()
-
-print("Çalışan Ortalama Tecrübe:", calisan_ort_tecrube)
-print("Çalışan Ortalama Yeni Maaş:", calisan_ort_maas)
-print("Mavi Yaka Ortalama Tecrübe:", mavi_yaka_ort_tecrube)
-print("Mavi Yaka Ortalama Yeni Maaş:", mavi_yaka_ort_maas)
-
-print("Beyaz Yaka Ortalama Tecrübe:", beyaz_yaka_ort_tecrube)
-print("Beyaz Yaka Ortalama Yeni Maaş:", beyaz_yaka_ort_maas)
-
-# Maaşı 15000 TL üzerinde olanların toplam sayısı
-maas_ust_limit = 15000
-maas_ust_limit_sayisi = df[df["Yeni Maaş"] > maas_ust_limit].shape[0]
-print("Maaşı 15000 TL üzerinde olanların toplam sayısı:", maas_ust_limit_sayisi)
-
-# Yeni maaşa göre DataFrame'i küçükten büyüğe sıralama
-df_sorted = df.sort_values(by="Yeni Maaş")
-print("Yeni Maaşa Göre Sıralama:")
-print(df_sorted)
-
-# Tecrübesi 3 seneden fazla olan Beyaz yakalıları bulma
-tecrube_limit = 3
-beyaz_yaka_tecrube_limit = df[(df["Nesne Değeri"] == "Beyaz Yaka") & (df["Tecrübe"] > tecrube_limit)]
-print("Tecrübesi 3 seneden fazla olan Beyaz Yakalılar:")
-print(beyaz_yaka_tecrube_limit)
-
-# Yeni maaşı 10000 TL üzerinde olanlar için 2-5 satır arasındakileri seçme
-maas_limit = 10000
-maas_limit_df = df[df["Yeni Maaş"] > maas_limit].loc[2:5, ["TC No", "Yeni Maaş"]]
-print("Yeni Maaşı 10000 TL üzerinde olanların 2-5 satırları:")
-print(maas_limit_df)
-
-# Yeni DataFrame oluşturma
-yeni_df = df[["Ad", "Soyad", "Sektör", "Yeni Maaş"]]
-print("Yeni DataFrame:")
-print(yeni_df)
-
-
