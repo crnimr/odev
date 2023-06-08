@@ -91,7 +91,7 @@ print(beyaz_yaka_tecrube_limit)
 
 # Yeni maaşı 10000 TL üzerinde olanlar için 2-5 satır arasındakileri seçme
 maas_limit = 10000
-maas_limit_df = df[df["Yeni Maaş"] > maas_limit].iloc[2:5, ["TC No", "Yeni Maaş"]]
+maas_limit_df = df[df["Yeni Maaş"] > maas_limit].loc[2:5, ["TC No", "Yeni Maaş"]]
 print("Yeni Maaşı 10000 TL üzerinde olanların 2-5 satırları:")
 print(maas_limit_df)
 
@@ -99,4 +99,5 @@ print(maas_limit_df)
 yeni_df = df[["Ad", "Soyad", "Sektör", "Yeni Maaş"]]
 print("Yeni DataFrame:")
 print(yeni_df)
+
 
